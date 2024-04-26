@@ -24,16 +24,15 @@ public class CommentDAO {
     private Date commentCreateTime;
 
     @ManyToOne
-    @JoinColumn(name = "userId") //댓글을 쓴 Member_id
+    @JoinColumn(name = "userId")
     @JsonIgnore
     private UserDAO userDAO;
 
     @ManyToOne
-    @JoinColumn(name = "postId", nullable = false) //해당 댓글이 달린 게시물
+    @JoinColumn(name = "postId", nullable = false)
     @JsonIgnore
     private PostDAO postDAO;
 
 }
 
 
-kdt-gitlab.elice.io/cloud_track/class_03/web_project1/team08/juhwan_project1
