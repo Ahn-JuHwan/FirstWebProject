@@ -1,11 +1,12 @@
 package com.example.webproject.Dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.webproject.Dto.PostDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,30 +27,43 @@ public class PostDAO {
     @Column
     private String title;
 
-
     @CreationTimestamp
-    @Column
-    private Date postCreatedTime;
+    @Column(updatable = false)
+    private LocalDateTime postCreatedTime;
 
-    @CreationTimestamp
-    @Column
-    private Date postModifiedTime;
 
-    @Column
+    @UpdateTimestamp
+    @Column(insertable = false)
+    private LocalDateTime postModifiedTime;
+
+
     private String postContent;
 
 
-    @ManyToOne()
-    @JoinColumn(name = "userId") //글을쓴 Member_id
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id") //글을쓴 user_Id
     private UserDAO userDAO;
-
-    @OneToMany(mappedBy = "postDAO", orphanRemoval = true)
-    private List<CommentDAO> comments = new ArrayList<>();
-
-
+//
+//    @OneToMany(mappedBy = "postDAO", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+//    private List<CommentDAO> commentEntityList = new ArrayList<>();
 
 
+    public static PostDAO topostDAO(PostDTO postDTO){
+        PostDAO postDAO = new PostDAO();
+        postDAO.setTitle(postDTO.getTitle());
+        postDAO.setPostContent(postDTO.getPostContent());
+        postDAO.setPostCreatedTime(postDTO.getPostCreatedTime());
+        postDAO.setPostModifiedTime(postDTO.getPostModifiedTime());
+        return postDAO;
+    }
 
-
+    public static PostDAO toUpdateEntity(PostDTO postDTO) {
+        PostDAO postDAO = new PostDAO();
+        postDAO.setPostId(postDTO.getPostId());
+        postDAO.setTitle(postDTO.getTitle());
+        postDAO.setPostContent(postDTO.getPostContent());
+        postDAO.setPostCreatedTime(postDTO.getPostCreatedTime());
+        postDAO.setPostModifiedTime(LocalDateTime.now());
+        return postDAO;
+    }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>list</title>
+  <style>
+    .post {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+    .post-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .post-content {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    .post-created-time {
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+<div class="Desktop1" style="width: 1440px; height: 1024px; position: relative; background: #F4F4F4">
+  <div class="Rectangle1" style="width: 1440px; height: 86px; left: 0px; top: 0px; position: absolute; background: rgba(226.31, 211.22, 211.22, 0.28)"></div>
+  <div style="left: 950px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">동아리</div>
+  <div style="left: 700px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">스터디</div>
+  <div style="left: 450px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">공모전</div>
+  <div style="width: 130px; height: 27px; left: 17px; top: 30px; position: absolute; text-align: center; color: #90B8F3; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">야, 나도</div>
+  <form action="/logout" method="get">
+    <button class="logout" type="submit" style="width: 85px; height: 42px; left: 1270px; top: 25px; position: absolute; background: #B2C8FF; border-radius: 15px">logout</button>
+  </form>
+  <div style="width: 797px; height: 148px; left: 366px; top: 395px; position: absolute; background: #FFFBFB">
+    <tr th:each="post: ${postList}">
+      <td th:text="${post.postId}"></td>
+      <td><a th:href="@{|/post-detail/${post.postId}|}" th:text="${post.title}"></a></td>
+      <td th:text="*{#temporals.format(post.postCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+  </div>
+</div>
+</body>
+</html>

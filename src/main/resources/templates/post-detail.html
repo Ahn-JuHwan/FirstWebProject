@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>post-detail</title>
+</head>
+<body>
+<div>
+    <h2 th:text="${post.title}">게시물 제목</h2>
+    <p th:text="${post.postContent}">게시물 내용</p>
+    <p th:text="${session.userName}">작성자 이름</p>
+    <p th:text="*{#temporals.format(post.postCreatedTime, 'yyyy-MM-dd HH:mm:ss')}">작성일</p>
+</div>
+
+<form th:action="@{/update/{id}(id=${post.postId})}" method="get">
+    <button type="submit">수정하기</button>
+</form>
+<form th:action="@{/delete/{id}(id=${post.postId})}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">삭제</button>
+</form>
+
+</body>
+</html>

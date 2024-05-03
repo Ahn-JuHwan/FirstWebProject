@@ -1,17 +1,19 @@
 package com.example.webproject.Dao;
 
+import com.example.webproject.Dto.UserDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.*;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
-@Builder
 @Getter
 @Table(name = "user")
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDAO {
@@ -19,31 +21,32 @@ public class UserDAO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column
+    @Column(nullable = false)
     private String userName;
 
-    @Column
-    private String email;
+    @Column(unique = true)
+    private String userEmail;
 
-    @Column
-    private String password;
+    @Column(nullable = false)
+    private String userPassword;
 
 
-    @OneToMany(mappedBy = "userDAO", cascade = CascadeType.REMOVE,fetch = FetchType.EAGER,  orphanRemoval=true)
+
+    @Builder.Default
+    @OneToMany(mappedBy = "userDAO", cascade = CascadeType.REMOVE,fetch = FetchType.LAZY,  orphanRemoval=true)
     @JsonIgnore
     private List<PostDAO> posts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userDAO", cascade = CascadeType.REMOVE,fetch = FetchType.LAZY,  orphanRemoval=true)
-    @JsonIgnore
-    private List<CommentDAO> comments = new ArrayList<>();
 
 
+    public static UserDAO touserDAO(UserDTO userDTO){
+        UserDAO userDAO = new UserDAO();
+        userDAO.setUserName(userDTO.getUserName());
+        userDAO.setUserEmail(userDTO.getUserEmail());
+        userDAO.setUserPassword(userDTO.getUserPassword());
 
-    public UserDAO(String email, String password, String userName) {
-
-        this.email = email;
-        this.password = password;
-        this.userName = userName;
+        return userDAO;
     }
+
 
 }
