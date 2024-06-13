@@ -10,4 +10,5 @@
 8. 게시판 comment - 댓글 기능 구현 실패 (양방향 데이터베이스 연결 실패)
 
 프로젝트 기획안 노션
-https://www.notion.so/713a7d708d0547a09485f7ec7dcc9d6d?pvs=4
+[https://www.notion.so/713a7d708d0547a09485f7ec7dcc9d6d?pvs=4
+](https://joyous-helmet-6f3.notion.site/713a7d708d0547a09485f7ec7dcc9d6d?pvs=4)
