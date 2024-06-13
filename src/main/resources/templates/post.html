@@ -3,27 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <title>post</title>
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+            background-color: #F4F4F4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .Desktop1 {
+            width: 1440px;
+            height: 1024px;
+            position: relative;
+            background: white;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .Rectangle1 {
+            width: 100%;
+            height: 86px;
+            background: rgba(226, 211, 211, 0.28);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .menu {
+            position: absolute;
+            top: 35px;
+            font-size: 20px;
+            font-weight: 665;
+            text-align: center;
+            color: black;
+            word-wrap: break-word;
+        }
+
+        .club {
+            left: 950px;
+        }
+
+        .study {
+            left: 700px;
+        }
+
+        .contest {
+            left: 450px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 17px;
+            font-size: 20px;
+            font-weight: 665;
+            color: #90B8F3;
+            text-align: center;
+        }
+
+        .title {
+            margin-top: 127px;
+            font-size: 20px;
+            font-weight: 665;
+            text-align: center;
+            color: black;
+        }
+
+        .Frame1 {
+            width: 1300px;
+            height: 730px;
+            margin-top: 39px;
+            background: #EFEDED;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+        }
+
+        .label {
+            font-size: 20px;
+            font-weight: 665;
+            text-align: center;
+            color: black;
+            position: absolute;
+        }
+
+        .content-label {
+            top: 197px;
+            left: 35px;
+        }
+
+        .title-label {
+            top: 57px;
+            left: 35px;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: 665;
+            text-align: center;
+            color: black;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .submit {
+            top: 652px;
+            left: 56px;
+            background: white;
+        }
+
+        .reset {
+            top: 652px;
+            left: 206px;
+            background: #FEFDFD;
+        }
+
+        .textarea {
+            width: 1150px;
+            height: 360px;
+            background: #FFFDFD;
+            border-radius: 10px;
+            position: absolute;
+            top: 237px;
+            left: 75px;
+        }
+
+        .input {
+            width: 1150px;
+            height: 53px;
+            background: white;
+            border-radius: 15px;
+            position: absolute;
+            top: 96px;
+            left: 75px;
+        }
+    </style>
 </head>
 <body>
 <form action="/post" method="post">
-<div class="Desktop1" style="width: 1440px; height: 1024px; position: relative; background: white">
-    <div class="Rectangle1" style="width: 1440px; height: 86px; left: 0px; top: 0px; position: absolute; background: rgba(226.31, 211.22, 211.22, 0.28)"></div>
-    <div style="left: 950px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">동아리</div>
-    <div style="left: 700px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">스터디</div>
-    <div style="left: 450px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">공모전</div>
-    <div style="width: 130px; height: 27px; left: 17px; top: 30px; position: absolute; text-align: center; color: #90B8F3; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">야, 나도</div>
+    <div class="Desktop1">
+        <div class="Rectangle1"></div>
+        <div class="menu club">동아리</div>
+        <div class="menu study">스터디</div>
+        <div class="menu contest">공모전</div>
+        <div class="logo">야, 나도</div>
 
-    <div style="left: 50px; top: 127px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">게시물 작성</div>
-    <div class="Frame1" style="width: 1300px; height: 730px; left: 67px; top: 166px; position: absolute; background: #EFEDED; border-radius: 25px; overflow: hidden">
-        <div style=" left: 35px; top: 197px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">내용:</div>
-        <div style="left: 35px; top: 57px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">제목:</div>
-        <input type="submit" value="작성하기" style="width: 100px; height: 40px; left: 56px; top: 652px; position: absolute; background: white; border-radius: 15px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">
-        <input type="reset" value="취소하기" style="width: 100px; height: 40px; left: 206px; top: 652px; position: absolute; background: #FEFDFD; border-radius: 15px;text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">
-        <textarea cols="1500px" rows="360px" name="postContent" style="width: 1150px; height: 360px; left: 75px; top: 237px; position: absolute; background: #FFFDFD; border-radius: 10px"></textarea>
-        <input type="text" name="title" style="width: 1150px; height: 53px; left: 75px; top: 96px; position: absolute; background: white; border-radius: 15px">
+        <div class="title">게시물 작성</div>
+        <div class="Frame1">
+            <div class="label content-label">내용:</div>
+            <div class="label title-label">제목:</div>
+            <input type="submit" value="작성하기" class="button submit">
+            <input type="reset" value="취소하기" class="button reset">
+            <textarea name="postContent" class="textarea"></textarea>
+            <input type="text" name="title" class="input">
+        </div>
     </div>
-
-</div>
 </form>
 </body>
 </html>

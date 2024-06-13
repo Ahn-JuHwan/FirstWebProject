@@ -3,44 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <title>main</title>
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .Main {
+            width: 1440px;
+            height: 1024px;
+            position: relative;
+            background: white;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .Rectangle1 {
+            width: 100%;
+            height: 86px;
+            background: rgba(226, 211, 211, 0.28);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .menu {
+            position: absolute;
+            top: 35px;
+            font-size: 20px;
+            font-weight: 665;
+            text-align: center;
+            color: black;
+            word-wrap: break-word;
+        }
+
+        .club {
+            left: 950px;
+        }
+
+        .study {
+            left: 700px;
+        }
+
+        .contest {
+            left: 450px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 17px;
+            font-size: 20px;
+            font-weight: 665;
+            color: #90B8F3;
+            text-align: center;
+        }
+
+        .button {
+            width: 85px;
+            height: 42px;
+            border-radius: 15px;
+            font-size: 20px;
+            text-align: center;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .signup {
+            background: #FBDADA;
+            left: 1150px;
+            top: 25px;
+        }
+
+        .login {
+            background: #B2C8FF;
+            left: 1270px;
+            top: 25px;
+        }
+
+        .logout {
+            background: #B2C8FF;
+            left: 1270px;
+            top: 25px;
+        }
+
+        .username {
+            position: absolute;
+            left: 1100px;
+            top: 13px;
+            color: wheat;
+            font-size: 20px;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .Frame1, .Frame2, .Frame3 {
+            width: 445px;
+            height: 200px;
+            position: absolute;
+            background: #EDE6E6;
+        }
+
+        .Frame1 {
+            left: 33px;
+            top: 450px;
+        }
+
+        .Frame2 {
+            left: 506px;
+            top: 450px;
+        }
+
+        .Frame3 {
+            left: 979px;
+            top: 450px;
+        }
+
+        .Image3, .Image1, .Image4 {
+            width: 445px;
+            height: 140px;
+            position: absolute;
+        }
+
+        .frame-text {
+            width: 350px;
+            height: 30px;
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 13px;
+            font-weight: 665;
+            word-wrap: break-word;
+            left: 48px;
+            top: 170px;
+        }
+
+    </style>
 </head>
 <body>
 
-<div class="Main" style="width: 1440px; height: 1024px; position: relative; background: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-    <div class="Rectangle1" style="width: 1440px; height: 86px; left: 0px; top: 0px; position: absolute; background: rgba(226.31, 211.22, 211.22, 0.28)"></div>
-    <div style="left: 950px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word"> 동아리</div>
+<div class="Main">
+    <div class="Rectangle1"></div>
+    <div class="menu club">동아리</div>
     <form action="/post-up" method="get">
-    <div style="left: 700px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word"><a href="post">스터디</a></div>
+        <div class="menu study"><a href="post">스터디</a></div>
     </form>
-    <div style="left: 450px; top: 35px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">공모전</div>
-    <div style="width: 130px; height: 27px; left: 17px; top: 30px; position: absolute; text-align: center; color: #90B8F3; font-size: 20px; font-family: Inter; font-weight: 665; word-wrap: break-word">야, 나도</div>
+    <div class="menu contest">공모전</div>
+    <div class="logo">야, 나도</div>
     <div th:if="${session.userName == null}">
         <form action="/sign-up" method="get">
-        <button type="submit" style="width: 85px; height: 42px; left: 1150px; top: 25px; position: absolute; background: #FBDADA; border-radius: 15px">signup</button>
+            <button type="submit" class="button signup">signup</button>
         </form>
         <form action="login-up" method="get">
-        <button type="submit" style="width: 85px; height: 42px; left: 1270px; top: 25px; position: absolute; background: #B2C8FF; border-radius: 15px">login</button>
+            <button type="submit" class="button login">login</button>
         </form>
     </div>
 
     <div th:if="${session.userName != null}">
-        <div class="username" style="left: 1100px; top: 13px; position: absolute; color: wheat; font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word"><p th:text="${session.userName}"></p></div>
+        <div class="username"><p th:text="${session.userName}"></p></div>
         <form action="/logout" method="get">
-        <button class="logout" type="submit" style="width: 85px; height: 42px; left: 1270px; top: 25px; position: absolute; background: #B2C8FF; border-radius: 15px">logout</button>
+            <button class="button logout" type="submit">logout</button>
         </form>
     </div>
 
-    <div class="Frame1" style="width: 445px; height: 200px; left: 33px; top: 450px; position: absolute; background: #EDE6E6">
-        <img class="Image3" style="width: 445px; height: 140px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/445x140" />
-        <div style="width: 350px; height: 30px; left: 48px; top: 170px; position: absolute; text-align: center; color: black; font-size: 13px; font-family: Inter; font-weight: 665; word-wrap: break-word">혼자가 아닌 같이 할 사람을 찾아 봐요!</div>
+    <div class="Frame1">
+        <img class="Image3" src="https://via.placeholder.com/445x140" />
+        <div class="frame-text">혼자가 아닌 같이 할 사람을 찾아 봐요!</div>
     </div>
-    <div class="Frame2" style="width: 445px; height: 200px; left: 506px; top: 450px; position: absolute; background: #EDE6E6">
-        <img class="Image1" style="width: 445px; height: 140px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/445x140" />
-        <div style="width: 350px; height: 30px; left: 48px; top: 170px; position: absolute; text-align: center; color: black; font-size: 13px; font-family: Inter; font-weight: 665; word-wrap: break-word">혼자 말고! 같은 분야에 관심있는 사람과 해봐요!</div>
+    <div class="Frame2">
+        <img class="Image1" src="https://via.placeholder.com/445x140" />
+        <div class="frame-text">혼자 말고! 같은 분야에 관심있는 사람과 해봐요!</div>
     </div>
-    <div class="Frame3" style="width: 445px; height: 200px; left: 979px; top: 450px; position: absolute; background: #EDE6E6">
-        <img class="Image4" style="width: 445px; height: 140px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/445x140" />
-        <div style="width: 350px; height: 30px; left: 48px; top: 170px; position: absolute; text-align: center; color: black; font-size: 13px; font-family: Inter; font-weight: 665; word-wrap: break-word">내가 가진 취미 혼자 즐기지말고 같이 즐겨봐요!</div>
+    <div class="Frame3">
+        <img class="Image4" src="https://via.placeholder.com/445x140" />
+        <div class="frame-text">내가 가진 취미 혼자 즐기지말고 같이 즐겨봐요!</div>
     </div>
 </div>
 </body>

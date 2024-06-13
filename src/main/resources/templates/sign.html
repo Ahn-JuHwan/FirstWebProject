@@ -3,20 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>sign</title>
+    <style>
+        .Frame1 {
+            margin: 0 auto;
+            width: 1440px;
+            height: 1024px;
+            position: relative;
+            background: #ABDCFF;
+        }
+
+        .Frame2 {
+            width: 560px;
+            height: 710px;
+            left: 440px;
+            top: 157px;
+            position: absolute;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .title {
+            width: 281px;
+            height: 57px;
+            left: 150px;
+            top: 40px;
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 25px;
+            font-family: Inter;
+            font-weight: 665;
+            word-wrap: break-word;
+        }
+
+        .label {
+            position: absolute;
+            opacity: 0.70;
+            text-align: center;
+            color: #665D5D;
+            font-size: 25px;
+            font-family: Inter;
+            font-weight: 100;
+            word-wrap: break-word;
+        }
+
+        .nickname {
+            left: 106px;
+            top: 142px;
+        }
+
+        .email {
+            left: 106px;
+            top: 291px;
+            font-style: italic;
+        }
+
+        .password {
+            left: 105px;
+            top: 440px;
+        }
+
+        .input {
+            width: 350px;
+            height: 40px;
+            position: absolute;
+            background: #F4F4F4;
+            border-radius: 5px;
+        }
+
+        #userName {
+            left: 106px;
+            top: 179px;
+        }
+
+        #userEmail {
+            left: 106px;
+            top: 328px;
+        }
+
+        #userPassword {
+            left: 106px;
+            top: 477px;
+        }
+
+        .submit-button {
+            width: 192px;
+            height: 58px;
+            left: 194px;
+            top: 612px;
+            position: absolute;
+            background: #43ABF5;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            font-family: Inter;
+            font-weight: 665;
+        }
+
+    </style>
 </head>
 <body>
 <form action="/sign" method="post">
-    <div class="Frame1" style="width: 1440px; height: 1024px; position: relative; background: #ABDCFF">
-        <div class="Frame2" style="width: 560px; height: 710px; left: 440px; top: 157px; position: absolute; background: white; border-radius: 25px; overflow: hidden">
-        <div style="width: 281px; height: 57px; left: 150px; top: 40px; position: absolute; text-align: center; color: black; font-size: 25px; font-family: Inter; font-weight: 665; word-wrap: break-word">회원가입</div>
-        <div style="left: 106px; top: 142px; position: absolute; opacity: 0.70; text-align: center; color: #665D5D; font-size: 25px; font-family: Inter; font-weight: 100; word-wrap: break-word">닉네임</div>
-        <div style="left: 106px; top: 291px; position: absolute; opacity: 0.70; text-align: center; color: #665D5D; font-size: 25px; font-family: Inter; font-style: italic; font-weight: 100; word-wrap: break-word">이메일</div>
-        <div style="left: 105px; top: 440px; position: absolute; opacity: 0.70; text-align: center; color: #665D5D; font-size: 25px; font-family: Inter; font-weight: 100; word-wrap: break-word">비밀번호</div>
-        <input type="text" style="width: 350px; height: 40px; left: 106px; top: 179px; position: absolute; background: #F4F4F4; border-radius: 5px" id="userName" name ="userName">
-        <input type="email" style="width: 350px; height: 40px; left: 106px; top: 328px; position: absolute; background: #F4F4F4" id="userEmail" name = "userEmail">
-        <input type="password" style="width: 350px; height: 40px; left: 106px; top: 477px; position: absolute; background: #F4F4F4" id = "userPassword" name="userPassword">
-        <input type="submit" style="width: 192px; height: 58px; left: 194px; top: 612px; position: absolute; background: #43ABF5; border-radius: 20px; text-align: center; color: white; font-size: 25px; font-family: Inter; font-weight: 665;" value="회원가입">
-    </div>
+    <div class="Frame1">
+        <div class="Frame2">
+            <div class="title">회원가입</div>
+            <div class="label nickname">닉네임</div>
+            <div class="label email">이메일</div>
+            <div class="label password">비밀번호</div>
+            <input type="text" class="input" id="userName" name="userName">
+            <input type="email" class="input" id="userEmail" name="userEmail">
+            <input type="password" class="input" id="userPassword" name="userPassword">
+            <input type="submit" class="submit-button" value="회원가입">
+        </div>
     </div>
 </form>
 </body>

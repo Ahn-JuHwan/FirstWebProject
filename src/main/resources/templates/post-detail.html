@@ -3,22 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <title>post-detail</title>
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .post-detail {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            text-align: left;
+        }
+
+        .post-detail h2 {
+            color: black;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .post-detail p {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #43abf5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #1f8ed9;
+        }
+
+    </style>
 </head>
 <body>
-<div>
+<div class="post-detail">
     <h2 th:text="${post.title}">게시물 제목</h2>
     <p th:text="${post.postContent}">게시물 내용</p>
     <p th:text="${session.userName}">작성자 이름</p>
     <p th:text="*{#temporals.format(post.postCreatedTime, 'yyyy-MM-dd HH:mm:ss')}">작성일</p>
-</div>
+
 
 <form th:action="@{/update/{id}(id=${post.postId})}" method="get">
-    <button type="submit">수정하기</button>
+    <button type="submit" class="button">수정하기</button>
 </form>
 <form th:action="@{/delete/{id}(id=${post.postId})}" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit">삭제</button>
+    <button type="submit" class="button">삭제</button>
 </form>
-
+</div>
 </body>
 </html>
