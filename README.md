@@ -11,4 +11,4 @@
 
 프로젝트 기획안 노션
 [https://www.notion.so/713a7d708d0547a09485f7ec7dcc9d6d?pvs=4
-](https://joyous-helmet-6f3.notion.site/713a7d708d0547a09485f7ec7dcc9d6d?pvs=4)
+](https://www.notion.so/713a7d708d0547a09485f7ec7dcc9d6d?source=copy_link)
