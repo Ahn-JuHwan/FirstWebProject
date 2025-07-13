@@ -40,16 +40,17 @@ public class UserController {
         UserDTO loginResult = userService.login(userDTO);
         if(loginResult != null){
             session.setAttribute("userName", loginResult.getUserName());
-            return "main";
+            return "/main";
         }
         else{
+            System.out.println("실패");
             return "login";
         }
     }
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 삭제
-        return "login"; // 로그아웃 후 로그인 페이지로 이동
+        return "/login"; // 로그아웃 후 로그인 페이지로 이동
     }
 
 }

@@ -14,7 +14,7 @@ public class HomeController {
         this.userController = userController;
         this.postController = postController;
     }
-    @GetMapping("/")
+    @GetMapping("/main")
     public String homeForm(){
         return "main";
     }
